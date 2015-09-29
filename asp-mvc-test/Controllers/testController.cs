@@ -6,12 +6,30 @@ using System.Web.Mvc;
 
 namespace asp_mvc_test.Controllers
 {
-    public class testController : Controller
+    public class Customer
     {
-        // GET: test
-        public string  hello()
+        public string Name { get; set; }
+        public string Adr { get; set; }
+
+        public override string ToString()
         {
-            return "Hello world";
+            return this.Adr + " | " + this.Name;
+        }
+    }
+
+    public class testController : Controller
+    {     
+        public ActionResult Index()
+        {
+            return View("TestV");
+        }
+
+        public Customer getCust()
+        {
+            Customer cus = new Customer();
+            cus.Name    =   "Cus 1";
+            cus.Adr     =   "Adr"; 
+            return cus;
         }
     }
 }
