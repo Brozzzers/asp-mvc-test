@@ -8,7 +8,14 @@
     <title>MyView</title>
 </head>
 <body>
-    Welcome to MVC 5 Step by Step learning
+    Welcome to MVC 5 Step by Step learning<br /><br />
+
+@{    asp_mvc_test.Models.Employee emp = (asp_mvc_test.Models.Employee)ViewBag.Employee; }
+
+    <b>Employee Details </b><br />
+    Employee Name : @emp.FirstName @emp.LastName <br />
+    Employee Salary: @emp.Salary.ToString("C")
+    </div>
 </body>
 </html>
 

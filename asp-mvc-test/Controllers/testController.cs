@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using asp_mvc_test.Models;
 
 namespace asp_mvc_test.Controllers
 {
@@ -21,7 +22,9 @@ namespace asp_mvc_test.Controllers
     {     
         public ActionResult Index()
         {
-            return View("TestV");
+            Employee e1 = new Employee("Boris", "Kavin", 35000);
+            ViewBag.Employee = e1;
+            return View("TestView");
         }
 
         public Customer getCust()

@@ -25,6 +25,6 @@ namespace asp_mvc_test.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
-        }
+        }        
     }
 }
