@@ -1,35 +1,26 @@
-﻿@{
-    Layout = null;
-}
+﻿@using asp_mvc_test.ViewModels
+@model EmployeeListViewModel
 
-@model asp_mvc_test.Models.Employee
+<h1>Hello @Model.UserName</h1>
+<hr />
+  Hello @Model.UserName
+<hr />
+<div>
+    <table>
+        <tr>
+            <th>Employee Name</th>
+            <th>Salary</th>
+        </tr>
+        @foreach (EmployeeViewModel item in Model.Employees)
+        {
+            <tr>
+                <td>@item.EmployeeName</td>
+                <td style="background-color:@item.SalaryColor">@item.Salary</td>
+            </tr>
+        }
+    </table>
+</div>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>MyView</title>
-</head>
-<body>
-    Welcome to MVC 5 Step by Step learning<br /><br />
 
-    <b>Employee Details </b><br />
-    Employee Na1me : @Model.FirstName @Model.LastName
 
-    @if (Model.Salary > 15000)
-    {
-        <span style="background-color:yellow">
-            Employee Salary: @Model.Salary.ToString("C")
-        </span>
-    }
-    else
-    {
-        <span style="background-color:green">
-
-            Employee Salary: @Model.Salary.ToString("C")
-        </span>
-    }
-    </div>
-</body>
-</html>
 

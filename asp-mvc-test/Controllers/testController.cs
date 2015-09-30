@@ -4,35 +4,36 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using asp_mvc_test.Models;
+using asp_mvc_test.ViewModels;
 
 namespace asp_mvc_test.Controllers
 {
-    public class Customer
-    {
-        public string Name { get; set; }
-        public string Adr { get; set; }
-
-        public override string ToString()
-        {
-            return this.Adr + " | " + this.Name;
-        }
-    }
-
     public class testController : Controller
     {     
         public ActionResult Index()
         {
-            Employee e1 = new Employee("Boris", "Kavin", 35000);
-            ViewBag.Employee = e1;
-            return View("TestView",e1);
-        }
+            EmployeeBusinessLayer ebl = new EmployeeBusinessLayer();
+            EmployeeListViewModel elvm = new EmployeeListViewModel();
+            elvm.Employees = new List<EmployeeViewModel>();
 
-        public Customer getCust()
-        {
-            Customer cus = new Customer();
-            cus.Name    =   "Cus 1";
-            cus.Adr     =   "Adr"; 
-            return cus;
-        }
+            foreach (Employee e1 in ebl.GetEmployees())
+            {
+                EmployeeViewModel evm = new EmployeeViewModel();
+
+                evm.EmployeeName = e1.FirstName + " " + e1.LastName;
+                evm.Salary = e1.Salary.ToString("C");
+
+                if (e1.Salary > 15000)
+                    evm.SalaryColor = "yellow";
+                else
+                    evm.SalaryColor = "green";
+
+                elvm.Employees.Add(evm);
+            }
+
+            elvm.UserName = "Admin";
+
+            return View("TestView",elvm);
+        }        
     }
 }
