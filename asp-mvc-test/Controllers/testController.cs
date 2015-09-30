@@ -24,7 +24,7 @@ namespace asp_mvc_test.Controllers
         {
             Employee e1 = new Employee("Boris", "Kavin", 35000);
             ViewBag.Employee = e1;
-            return View("TestView");
+            return View("TestView",e1);
         }
 
         public Customer getCust()

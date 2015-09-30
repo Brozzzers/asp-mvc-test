@@ -1,6 +1,9 @@
 ﻿@{
     Layout = null;
 }
+
+@model asp_mvc_test.Models.Employee
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,11 +13,22 @@
 <body>
     Welcome to MVC 5 Step by Step learning<br /><br />
 
-@{    asp_mvc_test.Models.Employee emp = (asp_mvc_test.Models.Employee)ViewBag.Employee; }
-
     <b>Employee Details </b><br />
-    Employee Name : @emp.FirstName @emp.LastName <br />
-    Employee Salary: @emp.Salary.ToString("C")
+    Employee Na1me : @Model.FirstName @Model.LastName
+
+    @if (Model.Salary > 15000)
+    {
+        <span style="background-color:yellow">
+            Employee Salary: @Model.Salary.ToString("C")
+        </span>
+    }
+    else
+    {
+        <span style="background-color:green">
+
+            Employee Salary: @Model.Salary.ToString("C")
+        </span>
+    }
     </div>
 </body>
 </html>
