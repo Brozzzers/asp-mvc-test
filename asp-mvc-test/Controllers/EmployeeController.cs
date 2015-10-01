@@ -8,7 +8,7 @@ using asp_mvc_test.ViewModels;
 
 namespace asp_mvc_test.Controllers
 {
-    public class testController : Controller
+    public class EmployeeController : Controller
     {     
         public ActionResult Index()
         {
@@ -29,11 +29,10 @@ namespace asp_mvc_test.Controllers
                     evm.SalaryColor = "green";
 
                 elvm.Employees.Add(evm);
-            }
+            }            
 
-            elvm.UserName = "Admin";
+            return View("EmployeeView",elvm);
 
-            return View("TestView",elvm);
-        }        
+       }       
     }
 }

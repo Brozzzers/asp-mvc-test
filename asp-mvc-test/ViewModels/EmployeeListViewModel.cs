@@ -7,7 +7,6 @@ namespace asp_mvc_test.ViewModels
 {
     public class EmployeeListViewModel
     {
-        public List<EmployeeViewModel> Employees { get; set; }
-        public string UserName { get; set; }
+        public List<EmployeeViewModel> Employees { get; set; }     
     }
 }
