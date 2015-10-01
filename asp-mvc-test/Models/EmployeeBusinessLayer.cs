@@ -10,11 +10,9 @@ namespace asp_mvc_test.Models
     {
         public List<Employee> GetEmployees()
         {
-            List<Employee> le = new List<Employee>();
+            SalesERPDAL s = new SalesERPDAL();
 
-            SalesERPDAL salesDAL = new SalesERPDAL();
-
-            return salesDAL.Employees.ToList();
+            return s.Employees.ToList();
         }
     }
 }

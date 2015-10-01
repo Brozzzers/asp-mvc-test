@@ -7,7 +7,7 @@ using asp_mvc_test.Models;
 
 namespace asp_mvc_test.DataAccessLayer
 {
-    public class SalesERPDAL : DbContext
+    public class SalesERPDAL:DbContext
     {
         public DbSet<Employee> Employees { get; set; }
 
