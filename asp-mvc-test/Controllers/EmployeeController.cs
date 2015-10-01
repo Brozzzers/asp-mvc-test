@@ -32,7 +32,17 @@ namespace asp_mvc_test.Controllers
             }            
 
             return View("EmployeeView",elvm);
+        }       
 
-       }       
+        public ActionResult AddEmployee()
+        {
+            return View();
+        }
+
+        public string SaveEmployee(Employee e)
+        {
+            return e.FirstName + "|" + e.LastName + "|" + e.Salary.ToString();
+        }
+        
     }
 }
