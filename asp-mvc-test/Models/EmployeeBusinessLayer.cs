@@ -14,5 +14,12 @@ namespace asp_mvc_test.Models
 
             return s.Employees.ToList();
         }
+
+        public void SaveEmployee(Employee e)
+        {
+            SalesERPDAL s = new SalesERPDAL();            
+            s.Employees.Add(e);
+            s.SaveChanges();
+        }
     }
 }

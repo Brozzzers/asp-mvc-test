@@ -39,9 +39,19 @@ namespace asp_mvc_test.Controllers
             return View();
         }
 
-        public string SaveEmployee(Employee e)
+        public ActionResult SaveEmployee(Employee e, string BtnSubmit)
         {
-            return e.FirstName + "|" + e.LastName + "|" + e.Salary.ToString();
+            switch(BtnSubmit)
+            {
+                case "Save Employee":
+                    EmployeeBusinessLayer ebl = new EmployeeBusinessLayer();
+                    ebl.SaveEmployee(e);
+                    return RedirectToAction("Index");
+                case "Cancel":
+                    return RedirectToAction("Index");
+            }
+
+            return new EmptyResult();            
         }
         
     }

@@ -8,8 +8,8 @@ namespace asp_mvc_test.Models
 {
     public class Employee
     {
-        [Key]
-        public string   EmployeeId  { get; set; }
+        [Key]      
+        public int   EmployeeId  { get; set; }
         public string   FirstName   { get; set; }
         public string   LastName    { get; set; }
         public int      Salary      { get; set; }
