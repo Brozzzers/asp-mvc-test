@@ -44,9 +44,16 @@ namespace asp_mvc_test.Controllers
             switch(BtnSubmit)
             {
                 case "Save Employee":
-                    EmployeeBusinessLayer ebl = new EmployeeBusinessLayer();
-                    ebl.SaveEmployee(e);
-                    return RedirectToAction("Index");
+                    if (ModelState.IsValid)
+                    {
+                        EmployeeBusinessLayer ebl = new EmployeeBusinessLayer();
+                        ebl.SaveEmployee(e);
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        return View("AddEmployee");
+                    }
                 case "Cancel":
                     return RedirectToAction("Index");
             }
