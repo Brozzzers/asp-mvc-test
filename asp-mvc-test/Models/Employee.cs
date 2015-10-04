@@ -11,7 +11,7 @@ namespace asp_mvc_test.Models
         [Key]      
         public int   EmployeeId  { get; set; }
 
-        [Required(ErrorMessage ="Enter the First Name")]
+        [FirsNameValidation]
         public string   FirstName   { get; set; }
 
         [Required(ErrorMessage = "Enter the Last Name")]
@@ -34,6 +34,22 @@ namespace asp_mvc_test.Models
             if ((int)value > 50000)
             {
                 return new ValidationResult("Too big!");
+            }
+            return ValidationResult.Success;
+        }
+    }
+
+    public class FirsNameValidation : ValidationAttribute
+    {
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+            if (value == null)
+            {
+                return new ValidationResult("Enter the first name (my validation)");
+            }
+            if (value.ToString().Contains("@"))
+            {
+                return new ValidationResult("First Name should not contain @");
             }
             return ValidationResult.Success;
         }
