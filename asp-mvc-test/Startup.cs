@@ -9,6 +9,7 @@ namespace asp_mvc_test
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            
         }
     }
 }

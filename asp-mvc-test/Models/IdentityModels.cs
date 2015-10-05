@@ -21,7 +21,7 @@ namespace asp_mvc_test.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("SalesERPDAL", throwIfV1Schema: false)
         {
         }
 

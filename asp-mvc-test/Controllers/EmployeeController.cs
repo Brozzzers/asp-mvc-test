@@ -8,8 +8,9 @@ using asp_mvc_test.ViewModels;
 
 namespace asp_mvc_test.Controllers
 {
+    [Authorize]
     public class EmployeeController : Controller
-    {     
+    {
         public ActionResult Index()
         {
             EmployeeBusinessLayer ebl = new EmployeeBusinessLayer();
