@@ -30,7 +30,13 @@ namespace asp_mvc_test.Controllers
                     evm.SalaryColor = "green";
 
                 elvm.Employees.Add(evm);
-            }            
+            }
+
+            FooterViewModel fvm = new FooterViewModel();
+            fvm.CompanyName = "Boris Company";
+            fvm.Year = DateTime.Now.Year.ToString();
+
+            elvm.FooterData = fvm;
 
             return View("EmployeeView",elvm);
         }       
