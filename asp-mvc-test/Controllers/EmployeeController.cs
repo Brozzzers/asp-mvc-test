@@ -39,13 +39,15 @@ namespace asp_mvc_test.Controllers
             elvm.FooterData = fvm;
 
             return View("EmployeeView",elvm);
-        }       
-
+        }
+        
+        [Authorize(Roles="admin")]
         public ActionResult AddEmployee()
         {
             return View();
         }
 
+        [NonAction]
         public ActionResult SaveEmployee(Employee e, string BtnSubmit)
         {
             switch(BtnSubmit)

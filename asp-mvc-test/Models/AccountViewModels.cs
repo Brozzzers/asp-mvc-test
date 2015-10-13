@@ -49,9 +49,8 @@ namespace asp_mvc_test.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "Name of user")]       
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -83,6 +82,9 @@ namespace asp_mvc_test.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Display(Name = "Is user an admin?")]
+        public bool IsAdmin { get; set; }
     }
 
     public class ResetPasswordViewModel
